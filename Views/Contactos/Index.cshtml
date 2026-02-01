@@ -1,0 +1,61 @@
+@model  IEnumerable<CrudEF.Models.Contacto>
+@{
+    ViewData["Title"] = "Lista de Contactos";
+}
+
+<h1 class="h1 text-center">Contactos</h1>
+
+<p>
+    <a asp-action="Crear" 
+       class="btn btn-primary">
+       Nuevo Conctaco
+    </a>
+</p>
+
+<div class="contactos-container">
+
+    <table class="table table-light table-hover table-bordered border-dark tabla-contactos">
+        <thead class="table table-dark">
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Correo</th>
+                <th scope="col">Teléfono</th>
+                <th scope="col">Dirección</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var contacto in Model)
+            {
+                <tr>
+                    <td scope="row" class="fw-bold text-center">@contacto.Id</td>
+                    <td>@contacto.Nombre</td>
+                    <td>@contacto.Correo</td>
+                    <td>@contacto.Direccion</td>
+                    <td>@contacto.Telefono</td>
+                    <td class="text-center">
+                        <a asp-action="Editar" 
+                           asp-route-id="@contacto.Id" 
+                           class="btn btn-warning me-4">
+                           Editar
+                        </a>
+                        
+                        <a asp-action="Detalle" 
+                           asp-route-id="@contacto.Id" 
+                           class="btn btn-info me-4">
+                           Detalle
+                        </a>
+
+                        <a asp-action="Borrar" 
+                           asp-route-id="@contacto.Id" 
+                           class="btn btn-danger">
+                           Eliminar
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

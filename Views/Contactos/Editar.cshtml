@@ -1,0 +1,41 @@
+@model CrudEF.Models.Contacto
+@{
+    ViewData["Title"] = "Editar Contacto";
+}
+
+<h1 class="h1">Contacto</h1>
+
+<div class="editar-container">
+
+    <form class="border-dark" asp-action="Editar" method="POST">
+
+        <input type="hidden" asp-for="Id">
+        
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div class="mb-3">
+            <label asp-for="Nombre" class="form-label">Nombre</label>
+            <input asp-for="Nombre" type="text" class="form-control" placeholder="Ingresa el nombre">
+            <span asp-validation-for="Nombre" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Correo" class="form-label">Correo</label>
+            <input asp-for="Correo" type="email" class="form-control" placeholder="Ingresa el correo">
+            <span asp-validation-for="Correo" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Telefono" class="form-label">Teléfono</label>
+            <input asp-for="Telefono" type="text" class="form-control" placeholder="Ingresa el teléfono">
+            <span asp-validation-for="Telefono" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Direccion" class="form-label">Dirección</label>
+            <input asp-for="Direccion" type="text" class="form-control" placeholder="Ingresa la dirección">
+            <span asp-validation-for="Direccion" class="text-danger"></span>
+        </div>
+
+        <a asp-action="Index" class="btn btn-secondary me-4">Volver</a>
+        <button type="submit" class="btn btn-success">Guardar Cambios</button>
+        
+    </form>
+</div>

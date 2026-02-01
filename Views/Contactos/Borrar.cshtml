@@ -1,0 +1,40 @@
+@model CrudEF.Models.Contacto
+@{
+    ViewData["Title"] = "Borrar Contacto";
+}
+
+<h1 class="h1 text-center mb-4">Borrar Contacto</h1>
+
+<h3 class="h3 text-center">¿Estas seguro que quieres eliminar el contacto?</h3>
+
+<div class="detalle-container d-flex justify-content-center">
+    <div class="card border-dark" style="width: 22rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">
+                <strong>Nombre:</strong> @Model.Nombre
+            </li>
+            <li class="list-group-item">
+                <strong>Email:</strong> @Model.Correo
+            </li>
+            <li class="list-group-item">
+                <strong>Teléfono:</strong> @Model.Telefono
+            </li>
+            <li class="list-group-item">
+                <strong>Dirección:</strong> @Model.Direccion
+            </li>
+        </ul>
+        <div class="card-body text-center">
+            <form asp-action="Borrar" method="POST">
+
+                <input type="hidden" asp-for="Id">
+
+                <a asp-action="Index" class="btn btn-secondary me-4">Volver</a>
+                <button type="submit" class="btn btn-danger">Borrar</button>
+
+            </form>
+            
+        </div>
+
+
+    </div>
+</div>
